@@ -2,6 +2,8 @@
 
 A clean, modern, and fully responsive weather dashboard built with **pure HTML5, CSS3, and Vanilla JavaScript** — no frameworks, no dependencies, and no API key required.
 
+[🌐 **Live Demo**](https://naifdev1.github.io/Weather-Dashboard/)
+
 ---
 
 ## 📸 Preview

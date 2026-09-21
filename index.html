@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="WeatherFlow – A modern weather dashboard. Search any city for real-time weather and a 7-day forecast." />
+  <title>WeatherFlow – Weather Dashboard</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌦️</text></svg>" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===================== HEADER ===================== -->
+  <header role="banner">
+    <div class="header-inner">
+
+      <!-- Logo -->
+      <a href="#" class="logo" aria-label="WeatherFlow home">
+        <span class="logo-icon" aria-hidden="true">🌦️</span>
+        <span class="logo-text">WeatherFlow</span>
+      </a>
+
+      <!-- Search -->
+      <div class="search-area" role="search">
+        <div class="search-wrapper">
+          <span class="search-icon" aria-hidden="true">🔍</span>
+          <label for="city-input" class="visually-hidden">Search for a city</label>
+          <input
+            type="text"
+            id="city-input"
+            placeholder="Search city… (e.g. Tokyo, London)"
+            autocomplete="off"
+            spellcheck="false"
+            aria-label="Enter city name"
+          />
+        </div>
+        <button id="search-btn" class="btn btn-primary" aria-label="Search weather">
+          Search
+        </button>
+        <button id="location-btn" class="btn btn-secondary" aria-label="Use my current location" title="Use my location">
+          <span aria-hidden="true">📍</span>
+          <span>My Location</span>
+        </button>
+      </div>
+
+      <!-- Controls -->
+      <div class="header-controls" role="group" aria-label="Display options">
+        <!-- Unit toggle -->
+        <div class="unit-toggle" role="group" aria-label="Temperature unit">
+          <button id="unit-c" class="unit-btn active" aria-pressed="true" aria-label="Show temperatures in Celsius">°C</button>
+          <button id="unit-f" class="unit-btn" aria-pressed="false" aria-label="Show temperatures in Fahrenheit">°F</button>
+        </div>
+        <!-- Theme toggle -->
+        <button id="theme-toggle" class="btn-icon" aria-label="Switch to dark mode" title="Toggle dark mode">🌙</button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ===================== MAIN ===================== -->
+  <main role="main" id="main-content">
+
+    <!-- Message Banner (errors / info) -->
+    <div
+      id="message-banner"
+      class="message-banner"
+      role="alert"
+      aria-live="polite"
+    >
+      <span id="message-icon" aria-hidden="true">⚠️</span>
+      <span id="message-text"></span>
+      <button id="message-close" class="message-close" aria-label="Dismiss message">✕</button>
+    </div>
+
+    <!-- Loading State -->
+    <div id="loading-overlay" class="loading-overlay" aria-live="polite" aria-label="Loading weather data">
+      <div class="spinner" role="status" aria-hidden="true"></div>
+      <p>Fetching weather data…</p>
+    </div>
+
+    <!-- Welcome Screen -->
+    <section id="welcome-screen" class="welcome-screen" aria-label="Welcome">
+      <div class="welcome-icon" aria-hidden="true">🌤️</div>
+      <h2>Welcome to WeatherFlow</h2>
+      <p>Search for any city above or use your current location to see real-time weather and a 7-day forecast.</p>
+    </section>
+
+    <!-- ===================== DASHBOARD ===================== -->
+    <div id="dashboard" class="dashboard" aria-label="Weather dashboard">
+
+      <!-- Main Weather Card -->
+      <section class="card main-weather-card" aria-label="Current weather">
+        <div class="weather-main-grid">
+          <div>
+            <div class="weather-location">
+              <h1 class="weather-city" id="weather-city" aria-live="polite">—</h1>
+              <p class="weather-country" id="weather-country" aria-live="polite">—</p>
+            </div>
+            <div class="weather-temp-area" aria-live="polite">
+              <span class="weather-temp" id="weather-temp" aria-label="Current temperature">—</span>
+              <span class="weather-temp-unit" id="weather-temp-unit">°C</span>
+            </div>
+            <p class="weather-condition" id="weather-condition" aria-live="polite">—</p>
+            <p class="weather-feels" id="weather-feels" aria-live="polite">—</p>
+            <p class="weather-updated" id="weather-updated" aria-live="polite">—</p>
+          </div>
+          <div
+            id="weather-icon"
+            class="weather-icon-large"
+            role="img"
+            aria-label="Weather icon"
+          >🌤️</div>
+        </div>
+      </section>
+
+      <!-- Weather Details -->
+      <section class="details-section" aria-label="Weather details">
+        <p class="card-title" style="padding-left:0; margin-bottom:0.75rem">Weather Details</p>
+        <div class="details-grid">
+
+          <article class="card detail-card" aria-label="Humidity">
+            <div class="detail-icon" aria-hidden="true">💧</div>
+            <div class="detail-label">Humidity</div>
+            <div class="detail-value" id="detail-humidity">—</div>
+          </article>
+
+          <article class="card detail-card" aria-label="Wind Speed">
+            <div class="detail-icon" aria-hidden="true">💨</div>
+            <div class="detail-label">Wind Speed</div>
+            <div class="detail-value" id="detail-wind-speed">—</div>
+          </article>
+
+          <article class="card detail-card" aria-label="Wind Direction">
+            <div class="detail-icon" aria-hidden="true">🧭</div>
+            <div class="detail-label">Wind Direction</div>
+            <div class="detail-value" id="detail-wind-dir">—</div>
+          </article>
+
+          <article class="card detail-card" aria-label="Pressure">
+            <div class="detail-icon" aria-hidden="true">🌡️</div>
+            <div class="detail-label">Pressure</div>
+            <div class="detail-value" id="detail-pressure">—</div>
+          </article>
+
+          <article class="card detail-card" aria-label="Visibility">
+            <div class="detail-icon" aria-hidden="true">👁️</div>
+            <div class="detail-label">Visibility</div>
+            <div class="detail-value" id="detail-visibility">—</div>
+          </article>
+
+          <article class="card detail-card" aria-label="UV Index">
+            <div class="detail-icon" aria-hidden="true">☀️</div>
+            <div class="detail-label">UV Index</div>
+            <div class="detail-value" id="detail-uv">—</div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- 7-Day Forecast -->
+      <section class="card forecast-section" aria-label="7-day weather forecast">
+        <p class="card-title">7-Day Forecast</p>
+        <div class="forecast-scroll">
+          <div id="forecast-grid" class="forecast-grid" role="list" aria-label="Forecast cards">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Additional Info -->
+      <section class="card extra-section" aria-label="Additional weather information">
+        <p class="card-title">Today at a Glance</p>
+        <div class="extra-grid">
+
+          <div class="extra-item" aria-label="Sunrise time">
+            <span class="extra-icon" aria-hidden="true">🌅</span>
+            <span class="extra-label">Sunrise</span>
+            <span class="extra-value" id="extra-sunrise">—</span>
+          </div>
+
+          <div class="extra-item" aria-label="Sunset time">
+            <span class="extra-icon" aria-hidden="true">🌇</span>
+            <span class="extra-label">Sunset</span>
+            <span class="extra-value" id="extra-sunset">—</span>
+          </div>
+
+          <div class="extra-item" aria-label="Max humidity today">
+            <span class="extra-icon" aria-hidden="true">💧</span>
+            <span class="extra-label">Humidity</span>
+            <span class="extra-value" id="extra-humidity">—</span>
+          </div>
+
+          <div class="extra-item" aria-label="Max wind speed today">
+            <span class="extra-icon" aria-hidden="true">🌬️</span>
+            <span class="extra-label">Max Wind</span>
+            <span class="extra-value" id="extra-wind">—</span>
+          </div>
+
+          <div class="extra-item" aria-label="Chance of precipitation">
+            <span class="extra-icon" aria-hidden="true">🌧️</span>
+            <span class="extra-label">Precipitation</span>
+            <span class="extra-value" id="extra-precip">—</span>
+          </div>
+
+        </div>
+      </section>
+
+    </div><!-- /.dashboard -->
+
+    <!-- Recent Searches -->
+    <div class="sidebar" aria-label="Recent searches section">
+      <div class="recent-section">
+        <div class="recent-header">
+          <h3 id="recent-heading">Recent Searches</h3>
+          <button
+            id="clear-recent-btn"
+            class="btn-clear-recent"
+            aria-label="Clear all recent searches"
+          >Clear all</button>
+        </div>
+        <ul
+          id="recent-list"
+          class="recent-list"
+          aria-labelledby="recent-heading"
+          role="list"
+        >
+          <span class="recent-empty">No recent searches yet.</span>
+        </ul>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer role="contentinfo">
+    <p>
+      WeatherFlow &mdash; Built with ❤️ using HTML, CSS &amp; JavaScript.
+      Weather data by <a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a>
+      &bull;
+      Geocoding by <a href="https://nominatim.openstreetmap.org/" target="_blank" rel="noopener noreferrer">Nominatim / OSM</a>
+    </p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

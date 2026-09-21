@@ -1,49 +1,48 @@
 # 🌦️ WeatherFlow — Weather Dashboard
 
-A clean, modern, and fully responsive weather dashboard built with **pure HTML5, CSS3, and Vanilla JavaScript** — no frameworks, no dependencies, no API key required.
+A clean, modern, and fully responsive weather dashboard built with **pure HTML5, CSS3, and Vanilla JavaScript** — no frameworks, no dependencies, and no API key required.
 
 ---
 
 ## 📸 Preview
 
-> _Replace this section with screenshots of your application._
-
-| Light Mode | Dark Mode |
-|------------|-----------|
-| ![Light Mode Screenshot](screenshots/light.png) | ![Dark Mode Screenshot](screenshots/dark.png) |
+| Light Mode                                           | Dark Mode                                          |
+| ---------------------------------------------------- | -------------------------------------------------- |
+| ![Light Mode Screenshot](screenshots/light-mode.png) | ![Dark Mode Screenshot](screenshots/dark-mode.png) |
 
 ---
 
 ## ✨ Features
 
-- 🔍 **City Search** — Search for any city worldwide with instant results
-- 📍 **Current Location** — Use your browser's Geolocation API to auto-detect weather
-- 🌡️ **Current Weather** — Temperature, condition, feels like, weather icon
-- 📊 **Weather Details** — Humidity, wind speed & direction, pressure, visibility, UV index
-- 📅 **7-Day Forecast** — Daily forecast cards with high/low temperatures and conditions
-- 🌅 **Today at a Glance** — Sunrise, sunset, max humidity, max wind, precipitation chance
-- 🕐 **Recent Searches** — Saves last 5 cities using LocalStorage; click to reload
-- 🌙 **Dark / Light Mode** — Smooth theme toggle with preference saved in LocalStorage
-- 🌡️ **°C / °F Toggle** — Switch temperature units dynamically; preference is remembered
-- ❌ **Error Handling** — User-friendly messages for all failure scenarios
-- ⏳ **Loading State** — Spinner and disabled controls while fetching
-- ♿ **Accessible** — Semantic HTML, ARIA labels, keyboard navigation, focus states
-- 📱 **Fully Responsive** — Works on mobile, tablet, and desktop
+* 🔍 **City Search** — Search for cities worldwide with instant results
+* 📍 **Current Location** — Detect your location using the browser's Geolocation API
+* 🌡️ **Current Weather** — Temperature, weather condition, feels-like temperature, and weather icon
+* 📊 **Weather Details** — Humidity, wind speed & direction, pressure, visibility, and UV index
+* 📅 **7-Day Forecast** — Daily forecast cards with high/low temperatures and conditions
+* 🌅 **Today at a Glance** — Sunrise, sunset, maximum humidity, maximum wind, and precipitation chance
+* 🕐 **Recent Searches** — Saves the last 5 cities using LocalStorage
+* 🌙 **Dark / Light Mode** — Smooth theme switching with saved preference
+* 🌡️ **°C / °F Toggle** — Dynamically switch between Celsius and Fahrenheit
+* ❌ **Error Handling** — User-friendly messages for different failure scenarios
+* ⏳ **Loading State** — Loading indicator with disabled controls while fetching data
+* ♿ **Accessible** — Semantic HTML, ARIA labels, keyboard navigation, and visible focus states
+* 📱 **Fully Responsive** — Optimized for mobile, tablet, and desktop screens
 
 ---
 
 ## 🛠️ Technologies
 
-| Technology | Purpose |
-|------------|---------|
-| HTML5 | Semantic structure, accessibility |
-| CSS3 | Variables, Grid, Flexbox, animations, responsive design |
-| Vanilla JavaScript (ES2020+) | App logic, API calls, state management |
-| Fetch API | HTTP requests to weather and geocoding APIs |
-| LocalStorage | Persisting theme, unit, and recent searches |
-| Geolocation API | Browser-based location detection |
-| Open-Meteo API | Free weather data (no key required) |
-| Nominatim / OpenStreetMap | Free reverse geocoding for location names |
+| Technology                   | Purpose                                                     |
+| ---------------------------- | ----------------------------------------------------------- |
+| HTML5                        | Semantic structure and accessibility                        |
+| CSS3                         | Variables, Grid, Flexbox, animations, and responsive design |
+| Vanilla JavaScript (ES2020+) | Application logic, API integration, and state management    |
+| Fetch API                    | HTTP requests to weather and geocoding APIs                 |
+| LocalStorage                 | Persisting theme, temperature unit, and recent searches     |
+| Geolocation API              | Browser-based location detection                            |
+| Open-Meteo API               | Free weather data without an API key                        |
+| Open-Meteo Geocoding API     | City search and coordinates                                 |
+| Nominatim / OpenStreetMap    | Reverse geocoding for location names                        |
 
 ---
 
@@ -51,35 +50,45 @@ A clean, modern, and fully responsive weather dashboard built with **pure HTML5,
 
 ### Option 1 — Open Directly
 
-Since this project uses no build tools, simply open `index.html` in your browser:
+This project requires no build tools or package installation. Simply clone the repository and open `index.html` in your browser.
 
 ```bash
-# Clone the repo
-git clone https://github.com/your-username/weatherflow.git
+# Clone the repository
+git clone https://github.com/NAIFDev1/Weather-Dashboard.git
 
-# Navigate into the project
-cd weatherflow/weather-dashboard
+# Navigate to the project
+cd Weather-Dashboard
 
-# Open index.html in your default browser (macOS)
-open index.html
-
-# Or on Windows
+# Windows
 start index.html
 
-# Or on Linux
+# macOS
+open index.html
+
+# Linux
 xdg-open index.html
 ```
 
-### Option 2 — Live Server (recommended for development)
+### Option 2 — Live Server
 
-If you use VS Code, install the **Live Server** extension, right-click `index.html`, and select **"Open with Live Server"**.
+For development, you can use the **Live Server** extension in VS Code.
+
+1. Install the Live Server extension.
+2. Open the project in VS Code.
+3. Right-click `index.html`.
+4. Select **Open with Live Server**.
 
 ### Option 3 — Python HTTP Server
 
 ```bash
-cd weather-dashboard
+cd Weather-Dashboard
 python3 -m http.server 8080
-# Visit http://localhost:8080
+```
+
+Then open:
+
+```text
+http://localhost:8080
 ```
 
 ---
@@ -88,88 +97,95 @@ python3 -m http.server 8080
 
 ### Weather Data — Open-Meteo
 
-- **URL:** `https://api.open-meteo.com/v1/forecast`
-- **Requires API Key:** ❌ No
-- **Free Tier:** ✅ ~10,000 requests/day (non-commercial)
-- **Coverage:** 🌍 Worldwide
-- **Data:** Current weather, hourly & daily forecasts, UV index, visibility, pressure, and more
+* **API:** Open-Meteo Forecast API
+* **Requires API Key:** ❌ No
+* **Coverage:** 🌍 Worldwide
+* **Data:** Current weather, daily forecasts, UV index, visibility, pressure, wind, humidity, and more
 
-### City Search / Geocoding — Open-Meteo Geocoding
+### City Search — Open-Meteo Geocoding
 
-- **URL:** `https://geocoding-api.open-meteo.com/v1/search`
-- **Requires API Key:** ❌ No
-- **Database:** GeoNames (300,000+ cities)
+* **API:** Open-Meteo Geocoding API
+* **Requires API Key:** ❌ No
+* **Purpose:** Converts city names into geographic coordinates
 
-### Reverse Geocoding — Nominatim (OpenStreetMap)
+### Reverse Geocoding — Nominatim / OpenStreetMap
 
-- **URL:** `https://nominatim.openstreetmap.org/reverse`
-- **Requires API Key:** ❌ No
-- **Used for:** Converting GPS coordinates → City name when using "My Location"
-- **Usage Policy:** Must include a valid `User-Agent` or `Referer` header in production apps. Nominatim's [usage policy](https://operations.osmfoundation.org/policies/nominatim/) applies.
+* **API:** Nominatim Reverse Geocoding
+* **Requires API Key:** ❌ No
+* **Purpose:** Converts GPS coordinates into readable location information
+* **Usage:** Used when the user selects **My Location**
+
+> Nominatim has usage requirements and rate limits. Production applications should follow the official OpenStreetMap Nominatim usage policy.
 
 ---
 
 ## 📁 Project Structure
 
-```
-weather-dashboard/
+```text
+Weather-Dashboard/
 │
-├── index.html      # Application shell — all HTML structure
-├── style.css       # All styles — CSS variables, layout, components
-├── script.js       # All JavaScript — API calls, DOM, state
-└── README.md       # Project documentation
+├── screenshots/
+│   ├── light-mode.png
+│   └── dark-mode.png
+│
+├── index.html       # Application structure
+├── style.css        # Styling, layout, themes, and responsive design
+├── script.js        # API calls, DOM manipulation, and application logic
+└── README.md        # Project documentation
 ```
 
 ---
 
 ## 🧩 JavaScript Architecture
 
-The script is organized into focused, readable functions:
+The application is organized into focused and reusable functions:
 
-| Function | Purpose |
-|----------|---------|
-| `fetchWeather(lat, lon, city, country)` | Calls Open-Meteo forecast API |
-| `searchCity(query)` | Geocodes a city name then fetches weather |
-| `getCurrentLocation()` | Uses Geolocation API + reverse geocoding |
-| `displayWeather(data, city, country)` | Renders main weather card |
-| `displayForecast(data)` | Renders 7-day forecast cards |
-| `displayExtra(data)` | Renders today's at-a-glance stats |
-| `toggleTemperatureUnit(unit)` | Switches °C / °F, re-renders temps |
-| `toggleTheme()` | Switches dark / light mode |
-| `saveRecentSearch(city)` | Writes to LocalStorage |
-| `loadRecentSearches()` | Reads from LocalStorage |
-| `renderRecentSearches(recent)` | Builds the recent chips in the UI |
-| `showLoading()` / `hideLoading()` | Controls loading state |
-| `showMessage(text, type)` | Displays error or info banner |
-| `init()` | App entry point — restores preferences, binds events |
+| Function                                | Purpose                                              |
+| --------------------------------------- | ---------------------------------------------------- |
+| `fetchWeather(lat, lon, city, country)` | Fetches weather data from Open-Meteo                 |
+| `searchCity(query)`                     | Searches for a city and retrieves its weather        |
+| `getCurrentLocation()`                  | Uses the Geolocation API and reverse geocoding       |
+| `displayWeather(data, city, country)`   | Renders the current weather information              |
+| `displayForecast(data)`                 | Renders the 7-day forecast                           |
+| `displayExtra(data)`                    | Renders today's additional weather statistics        |
+| `toggleTemperatureUnit(unit)`           | Switches between °C and °F                           |
+| `toggleTheme()`                         | Switches between light and dark mode                 |
+| `saveRecentSearch(city)`                | Saves a city to LocalStorage                         |
+| `loadRecentSearches()`                  | Loads saved recent searches                          |
+| `renderRecentSearches(recent)`          | Renders recent search buttons                        |
+| `showLoading()` / `hideLoading()`       | Controls the loading state                           |
+| `showMessage(text, type)`               | Displays information and error messages              |
+| `init()`                                | Initializes the application and restores preferences |
 
 ---
 
 ## 🌈 Customization
 
-All colors and design tokens are in `style.css` as CSS variables:
+The main design tokens and colors are defined in `style.css` using CSS variables.
 
 ```css
 :root {
-  --accent-gradient-start: #3b82f6;   /* Change primary accent */
-  --accent-gradient-end:   #8b5cf6;   /* Change gradient end */
-  --radius-lg: 16px;                  /* Card border radius */
-  /* ... and more */
+  --accent-gradient-start: #3b82f6;
+  --accent-gradient-end: #8b5cf6;
+  --radius-lg: 16px;
+  /* Additional design variables */
 }
 ```
+
+These variables make it easy to customize the application's visual style without modifying individual components.
 
 ---
 
 ## 🔮 Future Improvements
 
-- [ ] Hourly forecast chart using Canvas API
-- [ ] Weather map integration (e.g., OpenLayers)
-- [ ] Air quality index section
-- [ ] Animated weather backgrounds based on conditions
-- [ ] PWA support (Service Worker + Web App Manifest)
-- [ ] Share weather card as image
-- [ ] Multi-city comparison view
-- [ ] Weather alerts / severe weather warnings
+* [ ] Hourly forecast chart using Canvas API
+* [ ] Weather map integration
+* [ ] Air quality index section
+* [ ] Animated weather backgrounds based on weather conditions
+* [ ] Progressive Web App (PWA) support
+* [ ] Share weather cards as images
+* [ ] Multi-city comparison
+* [ ] Weather alerts and severe weather warnings
 
 ---
 
@@ -181,11 +197,11 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## 🙏 Credits
 
-- Weather data: [Open-Meteo](https://open-meteo.com/) — Free, open-source weather API
-- Geocoding: [Open-Meteo Geocoding](https://open-meteo.com/en/docs/geocoding-api)
-- Reverse geocoding: [Nominatim / OpenStreetMap](https://nominatim.openstreetmap.org/)
-- Weather icons: Native emoji (universal, no external dependency)
+* Weather data: [Open-Meteo](https://open-meteo.com/)
+* Geocoding: [Open-Meteo Geocoding API](https://open-meteo.com/en/docs/geocoding-api)
+* Reverse geocoding: [Nominatim / OpenStreetMap](https://nominatim.openstreetmap.org/)
+* Weather icons: Native emoji — no external dependency
 
 ---
 
-> Built as a portfolio project demonstrating clean HTML/CSS/JS skills, API integration, responsive design, and accessibility best practices.
+> Built as a portfolio project demonstrating clean HTML/CSS/JavaScript development, API integration, responsive design, browser APIs, local storage, and accessibility best practices.

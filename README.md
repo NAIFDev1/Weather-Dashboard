@@ -10,7 +10,7 @@ A clean, modern, and fully responsive weather dashboard built with **pure HTML5,
 
 | Light Mode                                           | Dark Mode                                          |
 | ---------------------------------------------------- | -------------------------------------------------- |
-| ![Light Mode Screenshot](screenshots/light-mode.png) | ![Dark Mode Screenshot](screenshots/dark-mode.png) |
+| ![Light Mode Screenshot](screenshots/Landing-&-Search-Interface.png) | ![Dark Mode Screenshot](screenshots/Current-Weather-Interface.png) |
 
 ---
 

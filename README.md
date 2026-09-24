@@ -18,7 +18,7 @@ A clean, modern, and fully responsive weather dashboard built with **pure HTML5,
 
 * 🔍 **City Search** — Search for cities worldwide with instant results
 * 📍 **Current Location** — Detect your location using the browser's Geolocation API
-* 🌡️ **Current Weather** — Temperature, weather condition, feels-like temperature, and weather icon
+* 🌡️ **Current Weather** — Temperature, weather condition, feels-like temperature, and SVG weather icon
 * 📊 **Weather Details** — Humidity, wind speed & direction, pressure, visibility, and UV index
 * 📅 **7-Day Forecast** — Daily forecast cards with high/low temperatures and conditions
 * 🌅 **Today at a Glance** — Sunrise, sunset, maximum humidity, maximum wind, and precipitation chance
@@ -43,8 +43,7 @@ A clean, modern, and fully responsive weather dashboard built with **pure HTML5,
 | LocalStorage                 | Persisting theme, temperature unit, and recent searches     |
 | Geolocation API              | Browser-based location detection                            |
 | Open-Meteo API               | Free weather data without an API key                        |
-| Open-Meteo Geocoding API     | City search and coordinates                                 |
-| Nominatim / OpenStreetMap    | Reverse geocoding for location names                        |
+| Nominatim / OpenStreetMap    | City search and reverse geocoding                           |
 
 ---
 
@@ -104,9 +103,9 @@ http://localhost:8080
 * **Coverage:** 🌍 Worldwide
 * **Data:** Current weather, daily forecasts, UV index, visibility, pressure, wind, humidity, and more
 
-### City Search — Open-Meteo Geocoding
+### City Search — Nominatim / OpenStreetMap
 
-* **API:** Open-Meteo Geocoding API
+* **API:** Nominatim / OpenStreetMap
 * **Requires API Key:** ❌ No
 * **Purpose:** Converts city names into geographic coordinates
 
@@ -144,18 +143,20 @@ The application is organized into focused and reusable functions:
 
 | Function                                | Purpose                                              |
 | --------------------------------------- | ---------------------------------------------------- |
-| `fetchWeather(lat, lon, city, country)` | Fetches weather data from Open-Meteo                 |
-| `searchCity(query)`                     | Searches for a city and retrieves its weather        |
-| `getCurrentLocation()`                  | Uses the Geolocation API and reverse geocoding       |
-| `displayWeather(data, city, country)`   | Renders the current weather information              |
-| `displayForecast(data)`                 | Renders the 7-day forecast                           |
-| `displayExtra(data)`                    | Renders today's additional weather statistics        |
-| `toggleTemperatureUnit(unit)`           | Switches between °C and °F                           |
-| `toggleTheme()`                         | Switches between light and dark mode                 |
-| `saveRecentSearch(city)`                | Saves a city to LocalStorage                         |
-| `loadRecentSearches()`                  | Loads saved recent searches                          |
-| `renderRecentSearches(recent)`          | Renders recent search buttons                        |
-| `showLoading()` / `hideLoading()`       | Controls the loading state                           |
+| `geocodeCity(query)`                    | Searches for a city via Nominatim                    |
+| `reverseGeocode(lat, lon)`              | Resolves coordinates to a place name via Nominatim   |
+| `fetchWeather(lat, lon)`                | Fetches weather data from Open-Meteo                 |
+| `runWeatherSearch(city)`                | Fetches weather for a city and renders the dashboard |
+| `handleSearch(query)`                   | Entry point for the city search flow                 |
+| `handleMyLocation()`                    | Uses the Geolocation API and reverse geocoding       |
+| `renderDashboard()`                     | Renders current weather and detail cards             |
+| `renderForecast()`                      | Renders the 7-day forecast                           |
+| `toDisplayTemp() / toDisplayWind()`     | Converts °C↔°F and km/h↔mph                          |
+| `degToCompass(deg)`                     | Converts wind degrees to a compass direction         |
+| `updateUnitUI()`                        | Syncs the °C/°F toggle buttons                       |
+| `addRecent(city) / renderRecent()`      | Persists and renders recent searches                 |
+| `applyTheme(theme) / toggleTheme()`     | Switches between light and dark mode                 |
+| `showLoading() / hideLoading()`         | Controls the loading state                           |
 | `showMessage(text, type)`               | Displays information and error messages              |
 | `init()`                                | Initializes the application and restores preferences |
 
@@ -167,9 +168,13 @@ The main design tokens and colors are defined in `style.css` using CSS variables
 
 ```css
 :root {
-  --accent-gradient-start: #3b82f6;
-  --accent-gradient-end: #8b5cf6;
-  --radius-lg: 16px;
+  --bg-gradient-1: #eef6ff;
+  --background: rgba(255, 255, 255, 0.55);
+  --foreground: #0f172a;
+  --primary: #0284c7;
+  --accent: #d97706;
+  --card: rgba(255, 255, 255, 0.55);
+  --border: rgba(2, 132, 199, 0.14);
   /* Additional design variables */
 }
 ```
@@ -208,9 +213,9 @@ This project is open source and available under the [MIT License](LICENSE).
 ## 🙏 Credits
 
 * Weather data: [Open-Meteo](https://open-meteo.com/)
-* Geocoding: [Open-Meteo Geocoding API](https://open-meteo.com/en/docs/geocoding-api)
+* Geocoding: [Nominatim / OpenStreetMap](https://nominatim.openstreetmap.org/)
 * Reverse geocoding: [Nominatim / OpenStreetMap](https://nominatim.openstreetmap.org/)
-* Weather icons: Native emoji — no external dependency
+* Weather icons: Inline SVG icon sprite — no external dependency
 
 ---
 

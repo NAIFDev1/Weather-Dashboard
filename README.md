@@ -8,7 +8,7 @@ A clean, modern, and fully responsive weather dashboard built with **pure HTML5,
 
 ## 📸 Preview
 
-| Light Mode                                           | Dark Mode                                           |
+| Landing & Search Interface                           | Current Weather Interface                           |
 | :--------------------------------------------------- | :-------------------------------------------------- |
 | ![Light Mode Screenshot](screenshots/Landing-&-Search-Interface.png) | ![Dark Mode Screenshot](screenshots/Current-Weather-Interface.png) |
 

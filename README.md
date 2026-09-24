@@ -1,6 +1,6 @@
 # 🌦️ WeatherFlow — Weather Dashboard
 
-A clean, modern, and fully responsive weather dashboard built with **pure HTML5, CSS3, and Vanilla JavaScript** — no frameworks, no dependencies, and no API key required.
+A clean, modern, and fully responsive weather dashboard built with **pure HTML5, CSS3, and Vanilla JavaScript** — no frameworks, no build tools, no dependencies, and no API key required.
 
 [🌐 **Live Demo**](https://naifdev1.github.io/Weather-Dashboard/)
 
@@ -8,39 +8,42 @@ A clean, modern, and fully responsive weather dashboard built with **pure HTML5,
 
 ## 📸 Preview
 
-| Light Mode                                           | Dark Mode                                          |
-| ---------------------------------------------------- | -------------------------------------------------- |
+| Light Mode                                           | Dark Mode                                           |
+| :--------------------------------------------------- | :-------------------------------------------------- |
 | ![Light Mode Screenshot](screenshots/Landing-&-Search-Interface.png) | ![Dark Mode Screenshot](screenshots/Current-Weather-Interface.png) |
 
 ---
 
 ## ✨ Features
 
-* 🔍 **City Search** — Search for cities worldwide with instant results
-* 📍 **Current Location** — Detect your location using the browser's Geolocation API
-* 🌡️ **Current Weather** — Temperature, weather condition, feels-like temperature, and SVG weather icon
+* 🔍 **City Search** — Instant worldwide city search powered by Nominatim
+* 📍 **My Location** — Detect your location with the browser's Geolocation API
+* 🌡️ **Current Weather** — Temperature, condition, feels-like, and SVG weather icon
 * 📊 **Weather Details** — Humidity, wind speed & direction, pressure, visibility, and UV index
-* 📅 **7-Day Forecast** — Daily forecast cards with high/low temperatures and conditions
-* 🌅 **Today at a Glance** — Sunrise, sunset, maximum humidity, maximum wind, and precipitation chance
-* 🕐 **Recent Searches** — Saves the last 5 cities using LocalStorage
-* 🌙 **Dark / Light Mode** — Smooth theme switching with saved preference
-* 🌡️ **°C / °F Toggle** — Dynamically switch between Celsius and Fahrenheit, with wind speed (km/h ↔ mph) and pressure (hPa ↔ inHg) converting alongside it
-* ❌ **Error Handling** — User-friendly messages for different failure scenarios
-* ⏳ **Loading State** — Loading indicator with disabled controls while fetching data
-* ♿ **Accessible** — Semantic HTML, ARIA labels, keyboard navigation, and visible focus states
-* 📱 **Fully Responsive** — Optimized for mobile, tablet, and desktop screens
+* 📅 **7-Day Forecast** — Daily cards with high/low temperatures and conditions
+* 🌅 **Today at a Glance** — Sunrise, sunset, max humidity, max wind, and precipitation chance
+* 🕐 **Recent Searches** — Stores the last **8** cities (with coordinates) in LocalStorage, restorable with one click
+* ♻️ **Last City Restored** — Reopens your last viewed city automatically on reload
+* 🌙 **Dark / Light Mode** — Smooth theme switching with saved preference and no flash on load
+* 🌡️ **°C / °F Toggle** — Converts temperature, wind speed (km/h ↔ mph), and pressure (hPa ↔ inHg) together
+* ⏳ **Loading State** — Spinner with disabled controls while fetching
+* ❌ **Error Handling** — Clear messages for network, geocoding, and permission failures
+* 🛑 **Request Cancellation** — Stale in-flight requests are aborted so results never override newer ones
+* ⌨️ **Keyboard Shortcut** — Press `/` to focus the search box from anywhere
+* ♿ **Accessible** — Semantic HTML, ARIA labels, `aria-pressed` states, keyboard navigation, and visible focus
+* 📱 **Fully Responsive** — Optimized for mobile, tablet, and desktop
 
 ---
 
 ## 🛠️ Technologies
 
 | Technology                   | Purpose                                                     |
-| ---------------------------- | ----------------------------------------------------------- |
-| HTML5                        | Semantic structure and accessibility                        |
+| ---------------------------- | ------------------------------------------------------------ |
+| HTML5                        | Semantic structure and accessibility                         |
 | CSS3                         | Variables, Grid, Flexbox, animations, and responsive design |
 | Vanilla JavaScript (ES2020+) | Application logic, API integration, and state management    |
-| Fetch API                    | HTTP requests to weather and geocoding APIs                 |
-| LocalStorage                 | Persisting theme, temperature unit, and recent searches     |
+| Fetch API + AbortController  | HTTP requests with stale-request cancellation               |
+| LocalStorage                 | Theme, unit preference, recent searches, and last city      |
 | Geolocation API              | Browser-based location detection                            |
 | Open-Meteo API               | Free weather data without an API key                        |
 | Nominatim / OpenStreetMap    | City search and reverse geocoding                           |
@@ -51,7 +54,7 @@ A clean, modern, and fully responsive weather dashboard built with **pure HTML5,
 
 ### Option 1 — Open Directly
 
-This project requires no build tools or package installation. Simply clone the repository and open `index.html` in your browser.
+No build tools or installation required. Clone the repository and open `index.html`.
 
 ```bash
 # Clone the repository
@@ -72,7 +75,7 @@ xdg-open index.html
 
 ### Option 2 — Live Server
 
-For development, you can use the **Live Server** extension in VS Code.
+For development, use the **Live Server** extension in VS Code:
 
 1. Install the Live Server extension.
 2. Open the project in VS Code.
@@ -96,16 +99,18 @@ http://localhost:8080
 
 ## 📡 API Information
 
+All APIs are free and require **no API key**.
+
 ### Weather Data — Open-Meteo
 
 * **API:** Open-Meteo Forecast API
 * **Requires API Key:** ❌ No
 * **Coverage:** 🌍 Worldwide
-* **Data:** Current weather, daily forecasts, UV index, visibility, pressure, wind, humidity, and more
+* **Data:** Current weather, 7-day forecast, UV index, visibility, pressure, wind, humidity, and more
 
 ### City Search — Nominatim / OpenStreetMap
 
-* **API:** Nominatim / OpenStreetMap
+* **API:** Nominatim Search API
 * **Requires API Key:** ❌ No
 * **Purpose:** Converts city names into geographic coordinates
 
@@ -113,10 +118,10 @@ http://localhost:8080
 
 * **API:** Nominatim Reverse Geocoding
 * **Requires API Key:** ❌ No
-* **Purpose:** Converts GPS coordinates into readable location information
+* **Purpose:** Converts GPS coordinates into a readable location name
 * **Usage:** Used when the user selects **My Location**
 
-> Nominatim has usage requirements and rate limits. Production applications should follow the official OpenStreetMap Nominatim usage policy.
+> Matters to check Nominatim's usage policy and rate limits for production applications.
 
 ---
 
@@ -129,84 +134,104 @@ Weather-Dashboard/
 │   ├── light-mode.png
 │   └── dark-mode.png
 │
-├── index.html       # Application structure
-├── style.css        # Styling, layout, themes, and responsive design
-├── script.js        # API calls, DOM manipulation, and application logic
-└── README.md        # Project documentation
+├── index.html   # Application structure
+├── style.css    # Styling, layout, themes, and responsive design
+├── script.js    # API calls, DOM manipulation, and application logic
+└── README.md    # Project documentation
 ```
 
 ---
 
 ## 🧩 JavaScript Architecture
 
-The application is organized into focused and reusable functions:
+The application is organized into focused, reusable functions:
 
-| Function                                | Purpose                                              |
-| --------------------------------------- | ---------------------------------------------------- |
-| `geocodeCity(query)`                    | Searches for a city via Nominatim                    |
-| `reverseGeocode(lat, lon)`              | Resolves coordinates to a place name via Nominatim   |
-| `fetchWeather(lat, lon)`                | Fetches weather data from Open-Meteo                 |
-| `runWeatherSearch(city)`                | Fetches weather for a city and renders the dashboard |
-| `handleSearch(query)`                   | Entry point for the city search flow                 |
-| `handleMyLocation()`                    | Uses the Geolocation API and reverse geocoding       |
-| `renderDashboard()`                     | Renders current weather and detail cards             |
-| `renderForecast()`                      | Renders the 7-day forecast                           |
-| `toDisplayTemp() / toDisplayWind()`     | Converts °C↔°F and km/h↔mph                          |
-| `degToCompass(deg)`                     | Converts wind degrees to a compass direction         |
-| `updateUnitUI()`                        | Syncs the °C/°F toggle buttons                       |
-| `addRecent(city) / renderRecent()`      | Persists and renders recent searches                 |
-| `applyTheme(theme) / toggleTheme()`     | Switches between light and dark mode                 |
-| `showLoading() / hideLoading()`         | Controls the loading state                           |
-| `showMessage(text, type)`               | Displays information and error messages              |
-| `init()`                                | Initializes the application and restores preferences |
+| Function                              | Purpose                                                    |
+| ------------------------------------- | ---------------------------------------------------------- |
+| `geocodeCity(query)`                  | Searches for a city via Nominatim                          |
+| `reverseGeocode(lat, lon)`            | Resolves coordinates to a place name via Nominatim         |
+| `fetchWeather(lat, lon)`              | Fetches weather data from Open-Meteo                       |
+| `runWeatherSearch(city)`              | Fetches weather for a city and renders the dashboard       |
+| `handleSearch(query)`                 | Entry point for the city search flow                       |
+| `handleMyLocation()`                  | Uses the Geolocation API and reverse geocoding             |
+| `renderDashboard()`                   | Renders current weather and detail cards                   |
+| `renderForecast()`                    | Renders the 7-day forecast                                 |
+| `renderForecastIcon(date)`            | Renders the SVG icon for a forecast day                    |
+| `toDisplayTemp() / toDisplayWind()`   | Converts °C↔°F and km/h↔mph                                |
+| `formatPressure() / formatVisibility()`| Formats pressure and visibility with the active units     |
+| `degToCompass(deg)`                   | Converts wind degrees to a compass direction               |
+| `uvCategory(index)`                   | Maps the UV index to a readable label                      |
+| `updateUnitUI()`                      | Syncs the °C/°F toggle buttons and `aria-pressed` states   |
+| `getRecent() / addRecent() / renderRecent()` | Reads, saves, and renders the last 8 recent searches |
+| `clearRecent()`                       | Clears all recent searches                                 |
+| `applyTheme(theme) / toggleTheme()`   | Switches between light and dark mode                       |
+| `showLoading() / hideLoading()`       | Controls the loading state                                 |
+| `showMessage(text, type)`             | Displays information and error messages                    |
+| `bindEvents()`                        | Wires up all event listeners                               |
+| `init()`                              | Initializes the app and restores preferences and last city |
+
+### LocalStorage Keys
+
+| Key                    | Purpose                                      |
+| ---------------------- | --------------------------------------------- |
+| `weatherflow_theme`    | Persists the dark/light theme preference      |
+| `weatherflow_recent`   | Stores the last 8 recent searches with coords |
+| `weatherflow_last_city`| Restores the last viewed city on reload       |
 
 ---
 
 ## 🌈 Customization
 
-The main design tokens and colors are defined in `style.css` using CSS variables.
+Design tokens are defined as CSS variables in `style.css` under `:root` (light) and `[data-theme="dark"]` (dark).
 
 ```css
 :root {
   --bg-gradient-1: #eef6ff;
+  --bg-gradient-2: #dbeafe;
   --background: rgba(255, 255, 255, 0.55);
   --foreground: #0f172a;
   --primary: #0284c7;
   --accent: #d97706;
   --card: rgba(255, 255, 255, 0.55);
+  --card-strong: rgba(255, 255, 255, 0.72);
   --border: rgba(2, 132, 199, 0.14);
-  /* Additional design variables */
+}
+
+[data-theme="dark"] {
+  --bg-gradient-2: #1e293b;
+  --card: rgba(30, 41, 59, 0.55);
+  --card-strong: rgba(30, 41, 59, 0.72);
+  --primary: #38bdf8;
+  --accent: #fbbf24;
+  --border: rgba(148, 163, 184, 0.16);
 }
 ```
 
-These variables make it easy to customize the application's visual style without modifying individual components.
+Change any variable to restyle the entire application without touching individual components.
 
 ---
 
 ## 🩹 Recent Fixes
 
-* Cancels stale in-flight requests, so rapidly switching between a search and "My Location" no longer risks the older response overwriting the newer one.
-* Wind speed and pressure now convert with the °C/°F toggle instead of staying locked to km/h and hPa.
+* Cancels stale in-flight requests, so rapidly switching between a search and "My Location" no longer lets an older response overwrite a newer one.
+* Wind speed and pressure now convert together with the °C/°F toggle instead of staying locked to km/h and hPa.
 * Fixed `aria-pressed` on the unit toggle not updating for screen readers.
 * Removed the dark-mode flash on load for users with a dark system preference.
-* Recent searches now store coordinates, so re-selecting one goes straight to the right place instead of re-searching by name (which could resolve to the wrong city for common names).
+* Recent searches now store coordinates, so re-selecting one goes straight to the right location instead of re-searching by name (which could resolve to the wrong city for common names).
+* The last viewed city is restored on reload for a smoother return to the app.
+
+---
 
 ## 🔮 Future Improvements
 
 * [ ] Hourly forecast chart using Canvas API
 * [ ] Weather map integration
 * [ ] Air quality index section
-* [ ] Animated weather backgrounds based on weather conditions
+* [ ] Animated weather backgrounds based on conditions
 * [ ] Progressive Web App (PWA) support
 * [ ] Share weather cards as images
 * [ ] Multi-city comparison
 * [ ] Weather alerts and severe weather warnings
-
----
-
-## 📜 License
-
-This project is open source and available under the [MIT License](LICENSE).
 
 ---
 

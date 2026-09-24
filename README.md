@@ -24,7 +24,7 @@ A clean, modern, and fully responsive weather dashboard built with **pure HTML5,
 * 🌅 **Today at a Glance** — Sunrise, sunset, maximum humidity, maximum wind, and precipitation chance
 * 🕐 **Recent Searches** — Saves the last 5 cities using LocalStorage
 * 🌙 **Dark / Light Mode** — Smooth theme switching with saved preference
-* 🌡️ **°C / °F Toggle** — Dynamically switch between Celsius and Fahrenheit
+* 🌡️ **°C / °F Toggle** — Dynamically switch between Celsius and Fahrenheit, with wind speed (km/h ↔ mph) and pressure (hPa ↔ inHg) converting alongside it
 * ❌ **Error Handling** — User-friendly messages for different failure scenarios
 * ⏳ **Loading State** — Loading indicator with disabled controls while fetching data
 * ♿ **Accessible** — Semantic HTML, ARIA labels, keyboard navigation, and visible focus states
@@ -177,6 +177,14 @@ The main design tokens and colors are defined in `style.css` using CSS variables
 These variables make it easy to customize the application's visual style without modifying individual components.
 
 ---
+
+## 🩹 Recent Fixes
+
+* Cancels stale in-flight requests, so rapidly switching between a search and "My Location" no longer risks the older response overwriting the newer one.
+* Wind speed and pressure now convert with the °C/°F toggle instead of staying locked to km/h and hPa.
+* Fixed `aria-pressed` on the unit toggle not updating for screen readers.
+* Removed the dark-mode flash on load for users with a dark system preference.
+* Recent searches now store coordinates, so re-selecting one goes straight to the right place instead of re-searching by name (which could resolve to the wrong city for common names).
 
 ## 🔮 Future Improvements
 

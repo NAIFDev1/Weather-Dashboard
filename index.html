@@ -4,11 +4,54 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="WeatherFlow – A modern weather dashboard. Search any city for real-time weather and a 7-day forecast." />
+  <meta name="theme-color" content="#eef6ff" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
   <title>WeatherFlow – Weather Dashboard</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌦️</text></svg>" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230284c7' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z'/></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script>
+    // Apply the saved/preferred theme before first paint to avoid a
+    // light-mode flash for users whose saved or system preference is dark.
+    (function () {
+      try {
+        var saved = localStorage.getItem('weatherflow_theme');
+        var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) { /* localStorage unavailable — default light-theme attribute below stands */ }
+    })();
+  </script>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
+  <!-- ===================== SVG ICON SPRITE ===================== -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+    <symbol id="icon-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+    <symbol id="icon-map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></symbol>
+    <symbol id="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+    <symbol id="icon-cloud" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></symbol>
+    <symbol id="icon-cloud-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="M20 12h2"/><path d="m19.07 4.93-1.41 1.41"/><path d="M15.947 12.65a4 4 0 0 0-5.925-4.128"/><path d="M13 22H7a5 5 0 1 1 4.9-6H13a3 3 0 0 1 0 6Z"/></symbol>
+    <symbol id="icon-cloud-drizzle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"/><path d="M8 19v1"/><path d="M8 14v1"/><path d="M16 19v1"/><path d="M16 14v1"/><path d="M12 21v1"/><path d="M12 16v1"/></symbol>
+    <symbol id="icon-cloud-rain" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"/><path d="M16 14v6"/><path d="M8 14v6"/><path d="M12 16v6"/></symbol>
+    <symbol id="icon-cloud-snow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"/><path d="M8 15h.01"/><path d="M8 19h.01"/><path d="M12 17h.01"/><path d="M12 21h.01"/><path d="M16 15h.01"/><path d="M16 19h.01"/></symbol>
+    <symbol id="icon-cloud-fog" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"/><path d="M16 17H7"/><path d="M17 21H9"/></symbol>
+    <symbol id="icon-cloud-lightning" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16.326A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 .5 8.973"/><path d="m13 12-3 5h4l-3 5"/></symbol>
+    <symbol id="icon-wind" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.8 19.6A2 2 0 1 0 14 16H2"/><path d="M17.5 8a2.5 2.5 0 1 1 2 4H2"/><path d="M9.8 4.4A2 2 0 1 1 11 8H2"/></symbol>
+    <symbol id="icon-compass" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m16.24 7.76-2.12 6.36-6.36 2.12 2.12-6.36 6.36-2.12z"/></symbol>
+    <symbol id="icon-gauge" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></symbol>
+    <symbol id="icon-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="icon-sunrise" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v8"/><path d="m4.93 10.93 1.41 1.41"/><path d="M2 18h2"/><path d="M20 18h2"/><path d="m19.07 10.93-1.41 1.41"/><path d="M22 22H2"/><path d="m8 6 4-4 4 4"/><path d="M16 18a4 4 0 0 0-8 0"/></symbol>
+    <symbol id="icon-sunset" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 10V2"/><path d="m4.93 10.93 1.41 1.41"/><path d="M2 18h2"/><path d="M20 18h2"/><path d="m19.07 10.93-1.41 1.41"/><path d="M22 22H2"/><path d="m16 6-4 4-4-4"/><path d="M16 18a4 4 0 0 0-8 0"/></symbol>
+    <symbol id="icon-droplet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.84-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z"/><path d="M12.56 6.6A10.97 10.97 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 0 1-11.91 4.97"/></symbol>
+    <symbol id="icon-thermometer" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"/></symbol>
+    <symbol id="icon-tornado" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 4H3"/><path d="M18 8H6"/><path d="M19 12H9"/><path d="M16 16h-6"/><path d="M11 20H9"/></symbol>
+    <symbol id="icon-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
+    <symbol id="icon-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></symbol>
+  </svg>
 
   <!-- ===================== HEADER ===================== -->
   <header role="banner">
@@ -16,14 +59,18 @@
 
       <!-- Logo -->
       <a href="#" class="logo" aria-label="WeatherFlow home">
-        <span class="logo-icon" aria-hidden="true">🌦️</span>
+        <span class="logo-icon" aria-hidden="true">
+          <svg class="icon"><use href="#icon-cloud"/></svg>
+        </span>
         <span class="logo-text">WeatherFlow</span>
       </a>
 
       <!-- Search -->
       <div class="search-area" role="search">
         <div class="search-wrapper">
-          <span class="search-icon" aria-hidden="true">🔍</span>
+          <span class="search-icon" aria-hidden="true">
+            <svg class="icon"><use href="#icon-search"/></svg>
+          </span>
           <label for="city-input" class="visually-hidden">Search for a city</label>
           <input
             type="text"
@@ -38,7 +85,9 @@
           Search
         </button>
         <button id="location-btn" class="btn btn-secondary" aria-label="Use my current location" title="Use my location">
-          <span aria-hidden="true">📍</span>
+          <span aria-hidden="true">
+            <svg class="icon"><use href="#icon-map-pin"/></svg>
+          </span>
           <span>My Location</span>
         </button>
       </div>
@@ -51,7 +100,10 @@
           <button id="unit-f" class="unit-btn" aria-pressed="false" aria-label="Show temperatures in Fahrenheit">°F</button>
         </div>
         <!-- Theme toggle -->
-        <button id="theme-toggle" class="btn-icon" aria-label="Switch to dark mode" title="Toggle dark mode">🌙</button>
+        <button id="theme-toggle" class="btn-icon" aria-label="Switch to dark mode" title="Toggle dark mode">
+          <svg class="icon icon-moon"><use href="#icon-moon"/></svg>
+          <svg class="icon icon-sun" hidden><use href="#icon-sun"/></svg>
+        </button>
       </div>
 
     </div>
@@ -61,32 +113,33 @@
   <main role="main" id="main-content">
 
     <!-- Message Banner (errors / info) -->
-    <div
-      id="message-banner"
-      class="message-banner"
-      role="alert"
-      aria-live="polite"
-    >
-      <span id="message-icon" aria-hidden="true">⚠️</span>
+    <div id="message-banner" class="message-banner" role="alert" aria-live="polite" hidden>
+      <span id="message-icon" aria-hidden="true">
+        <svg class="icon"><use href="#icon-alert"/></svg>
+      </span>
       <span id="message-text"></span>
-      <button id="message-close" class="message-close" aria-label="Dismiss message">✕</button>
+      <button id="message-close" class="message-close" aria-label="Dismiss message">
+        <svg class="icon"><use href="#icon-x"/></svg>
+      </button>
     </div>
 
     <!-- Loading State -->
-    <div id="loading-overlay" class="loading-overlay" aria-live="polite" aria-label="Loading weather data">
+    <div id="loading-overlay" class="loading-overlay" aria-live="polite" aria-label="Loading weather data" hidden>
       <div class="spinner" role="status" aria-hidden="true"></div>
       <p>Fetching weather data…</p>
     </div>
 
     <!-- Welcome Screen -->
     <section id="welcome-screen" class="welcome-screen" aria-label="Welcome">
-      <div class="welcome-icon" aria-hidden="true">🌤️</div>
+      <div class="welcome-icon" aria-hidden="true">
+        <svg class="icon"><use href="#icon-cloud-sun"/></svg>
+      </div>
       <h2>Welcome to WeatherFlow</h2>
       <p>Search for any city above or use your current location to see real-time weather and a 7-day forecast.</p>
     </section>
 
     <!-- ===================== DASHBOARD ===================== -->
-    <div id="dashboard" class="dashboard" aria-label="Weather dashboard">
+    <div id="dashboard" class="dashboard" aria-label="Weather dashboard" hidden>
 
       <!-- Main Weather Card -->
       <section class="card main-weather-card" aria-label="Current weather">
@@ -104,52 +157,61 @@
             <p class="weather-feels" id="weather-feels" aria-live="polite">—</p>
             <p class="weather-updated" id="weather-updated" aria-live="polite">—</p>
           </div>
-          <div
-            id="weather-icon"
-            class="weather-icon-large"
-            role="img"
-            aria-label="Weather icon"
-          >🌤️</div>
+          <div id="weather-icon-large" class="weather-icon-large" role="img" aria-label="Weather icon">
+            <svg class="icon"><use href="#icon-cloud-sun"/></svg>
+          </div>
         </div>
       </section>
 
       <!-- Weather Details -->
       <section class="details-section" aria-label="Weather details">
-        <p class="card-title" style="padding-left:0; margin-bottom:0.75rem">Weather Details</p>
+        <p class="section-title">Weather Details</p>
         <div class="details-grid">
 
           <article class="card detail-card" aria-label="Humidity">
-            <div class="detail-icon" aria-hidden="true">💧</div>
+            <div class="detail-icon" aria-hidden="true">
+              <svg class="icon"><use href="#icon-droplet"/></svg>
+            </div>
             <div class="detail-label">Humidity</div>
             <div class="detail-value" id="detail-humidity">—</div>
           </article>
 
           <article class="card detail-card" aria-label="Wind Speed">
-            <div class="detail-icon" aria-hidden="true">💨</div>
+            <div class="detail-icon" aria-hidden="true">
+              <svg class="icon"><use href="#icon-wind"/></svg>
+            </div>
             <div class="detail-label">Wind Speed</div>
             <div class="detail-value" id="detail-wind-speed">—</div>
           </article>
 
           <article class="card detail-card" aria-label="Wind Direction">
-            <div class="detail-icon" aria-hidden="true">🧭</div>
+            <div class="detail-icon" aria-hidden="true">
+              <svg class="icon"><use href="#icon-compass"/></svg>
+            </div>
             <div class="detail-label">Wind Direction</div>
             <div class="detail-value" id="detail-wind-dir">—</div>
           </article>
 
           <article class="card detail-card" aria-label="Pressure">
-            <div class="detail-icon" aria-hidden="true">🌡️</div>
+            <div class="detail-icon" aria-hidden="true">
+              <svg class="icon"><use href="#icon-gauge"/></svg>
+            </div>
             <div class="detail-label">Pressure</div>
             <div class="detail-value" id="detail-pressure">—</div>
           </article>
 
           <article class="card detail-card" aria-label="Visibility">
-            <div class="detail-icon" aria-hidden="true">👁️</div>
+            <div class="detail-icon" aria-hidden="true">
+              <svg class="icon"><use href="#icon-eye"/></svg>
+            </div>
             <div class="detail-label">Visibility</div>
             <div class="detail-value" id="detail-visibility">—</div>
           </article>
 
           <article class="card detail-card" aria-label="UV Index">
-            <div class="detail-icon" aria-hidden="true">☀️</div>
+            <div class="detail-icon" aria-hidden="true">
+              <svg class="icon"><use href="#icon-thermometer"/></svg>
+            </div>
             <div class="detail-label">UV Index</div>
             <div class="detail-value" id="detail-uv">—</div>
           </article>
@@ -159,7 +221,10 @@
 
       <!-- 7-Day Forecast -->
       <section class="card forecast-section" aria-label="7-day weather forecast">
-        <p class="card-title">7-Day Forecast</p>
+        <div class="forecast-header">
+          <p class="section-title">7-Day Forecast</p>
+          <p class="forecast-byline">Daily high / low</p>
+        </div>
         <div class="forecast-scroll">
           <div id="forecast-grid" class="forecast-grid" role="list" aria-label="Forecast cards">
             <!-- Populated by JS -->
@@ -169,35 +234,45 @@
 
       <!-- Additional Info -->
       <section class="card extra-section" aria-label="Additional weather information">
-        <p class="card-title">Today at a Glance</p>
+        <p class="section-title">Today at a Glance</p>
         <div class="extra-grid">
 
           <div class="extra-item" aria-label="Sunrise time">
-            <span class="extra-icon" aria-hidden="true">🌅</span>
+            <span class="extra-icon" aria-hidden="true">
+              <svg class="icon"><use href="#icon-sunrise"/></svg>
+            </span>
             <span class="extra-label">Sunrise</span>
             <span class="extra-value" id="extra-sunrise">—</span>
           </div>
 
           <div class="extra-item" aria-label="Sunset time">
-            <span class="extra-icon" aria-hidden="true">🌇</span>
+            <span class="extra-icon" aria-hidden="true">
+              <svg class="icon"><use href="#icon-sunset"/></svg>
+            </span>
             <span class="extra-label">Sunset</span>
             <span class="extra-value" id="extra-sunset">—</span>
           </div>
 
           <div class="extra-item" aria-label="Max humidity today">
-            <span class="extra-icon" aria-hidden="true">💧</span>
+            <span class="extra-icon" aria-hidden="true">
+              <svg class="icon"><use href="#icon-droplet"/></svg>
+            </span>
             <span class="extra-label">Humidity</span>
             <span class="extra-value" id="extra-humidity">—</span>
           </div>
 
           <div class="extra-item" aria-label="Max wind speed today">
-            <span class="extra-icon" aria-hidden="true">🌬️</span>
+            <span class="extra-icon" aria-hidden="true">
+              <svg class="icon"><use href="#icon-wind"/></svg>
+            </span>
             <span class="extra-label">Max Wind</span>
             <span class="extra-value" id="extra-wind">—</span>
           </div>
 
           <div class="extra-item" aria-label="Chance of precipitation">
-            <span class="extra-icon" aria-hidden="true">🌧️</span>
+            <span class="extra-icon" aria-hidden="true">
+              <svg class="icon"><use href="#icon-cloud-drizzle"/></svg>
+            </span>
             <span class="extra-label">Precipitation</span>
             <span class="extra-value" id="extra-precip">—</span>
           </div>
@@ -208,36 +283,27 @@
     </div><!-- /.dashboard -->
 
     <!-- Recent Searches -->
-    <div class="sidebar" aria-label="Recent searches section">
-      <div class="recent-section">
+    <aside class="sidebar" aria-label="Recent searches section">
+      <div class="recent-section card">
         <div class="recent-header">
           <h3 id="recent-heading">Recent Searches</h3>
-          <button
-            id="clear-recent-btn"
-            class="btn-clear-recent"
-            aria-label="Clear all recent searches"
-          >Clear all</button>
+          <button id="clear-recent-btn" class="btn-clear-recent" aria-label="Clear all recent searches" hidden>Clear all</button>
         </div>
-        <ul
-          id="recent-list"
-          class="recent-list"
-          aria-labelledby="recent-heading"
-          role="list"
-        >
-          <span class="recent-empty">No recent searches yet.</span>
+        <ul id="recent-list" class="recent-list" aria-labelledby="recent-heading" role="list">
+          <li class="recent-empty" role="listitem">No recent searches yet.</li>
         </ul>
       </div>
-    </div>
+    </aside>
 
   </main>
 
   <!-- ===================== FOOTER ===================== -->
   <footer role="contentinfo">
     <p>
-      WeatherFlow &mdash; Built with ❤️ using HTML, CSS &amp; JavaScript.
-      Weather data by <a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a>
-      &bull;
-      Geocoding by <a href="https://nominatim.openstreetmap.org/" target="_blank" rel="noopener noreferrer">Nominatim / OSM</a>
+      WeatherFlow &mdash; Weather data by
+      <a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a>
+      &bull; Geocoding by
+      <a href="https://nominatim.openstreetmap.org/" target="_blank" rel="noopener noreferrer">Nominatim / OSM</a>
     </p>
   </footer>
 

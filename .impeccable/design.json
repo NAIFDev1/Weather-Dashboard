@@ -1,0 +1,687 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-30T19:57:21.514Z",
+  "title": "Design System: WeatherFlow",
+  "extensions": {
+    "colorMeta": {
+      "ground": {
+        "role": "neutral",
+        "displayName": "ground",
+        "tonalRamp": [
+          "oklch(15% 0.0011 95.1)",
+          "oklch(27% 0.0027 95.1)",
+          "oklch(39% 0.0043 95.1)",
+          "oklch(51% 0.0054 95.1)",
+          "oklch(63% 0.0054 95.1)",
+          "oklch(75% 0.0043 95.1)",
+          "oklch(87% 0.0024 95.1)",
+          "oklch(95% 0.0008 95.1)"
+        ]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "surface",
+        "tonalRamp": [
+          "oklch(15% 0.0000 89.9)",
+          "oklch(27% 0.0000 89.9)",
+          "oklch(39% 0.0000 89.9)",
+          "oklch(51% 0.0000 89.9)",
+          "oklch(63% 0.0000 89.9)",
+          "oklch(75% 0.0000 89.9)",
+          "oklch(87% 0.0000 89.9)",
+          "oklch(95% 0.0000 89.9)"
+        ]
+      },
+      "raised": {
+        "role": "neutral",
+        "displayName": "raised",
+        "tonalRamp": [
+          "oklch(15% 0.0011 95.1)",
+          "oklch(27% 0.0027 95.1)",
+          "oklch(39% 0.0043 95.1)",
+          "oklch(51% 0.0054 95.1)",
+          "oklch(63% 0.0054 95.1)",
+          "oklch(75% 0.0043 95.1)",
+          "oklch(87% 0.0024 95.1)",
+          "oklch(95% 0.0008 95.1)"
+        ]
+      },
+      "text": {
+        "role": "neutral",
+        "displayName": "text",
+        "tonalRamp": [
+          "oklch(15% 0.0012 134.9)",
+          "oklch(27% 0.0030 134.9)",
+          "oklch(39% 0.0049 134.9)",
+          "oklch(51% 0.0061 134.9)",
+          "oklch(63% 0.0061 134.9)",
+          "oklch(75% 0.0049 134.9)",
+          "oklch(87% 0.0027 134.9)",
+          "oklch(95% 0.0009 134.9)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "muted",
+        "tonalRamp": [
+          "oklch(15% 0.0022 119.8)",
+          "oklch(27% 0.0055 119.8)",
+          "oklch(39% 0.0088 119.8)",
+          "oklch(51% 0.0110 119.8)",
+          "oklch(63% 0.0110 119.8)",
+          "oklch(75% 0.0088 119.8)",
+          "oklch(87% 0.0050 119.8)",
+          "oklch(95% 0.0017 119.8)"
+        ]
+      },
+      "border": {
+        "role": "neutral",
+        "displayName": "border",
+        "tonalRamp": [
+          "oklch(15% 0.0016 106.6)",
+          "oklch(27% 0.0040 106.6)",
+          "oklch(39% 0.0064 106.6)",
+          "oklch(51% 0.0080 106.6)",
+          "oklch(63% 0.0080 106.6)",
+          "oklch(75% 0.0064 106.6)",
+          "oklch(87% 0.0036 106.6)",
+          "oklch(95% 0.0012 106.6)"
+        ]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "rule",
+        "tonalRamp": [
+          "oklch(15% 0.0016 106.6)",
+          "oklch(27% 0.0040 106.6)",
+          "oklch(39% 0.0064 106.6)",
+          "oklch(51% 0.0080 106.6)",
+          "oklch(63% 0.0080 106.6)",
+          "oklch(75% 0.0064 106.6)",
+          "oklch(87% 0.0036 106.6)",
+          "oklch(95% 0.0012 106.6)"
+        ]
+      },
+      "control": {
+        "role": "neutral",
+        "displayName": "control",
+        "tonalRamp": [
+          "oklch(15% 0.0025 121.7)",
+          "oklch(27% 0.0064 121.7)",
+          "oklch(39% 0.0102 121.7)",
+          "oklch(51% 0.0127 121.7)",
+          "oklch(63% 0.0127 121.7)",
+          "oklch(75% 0.0102 121.7)",
+          "oklch(87% 0.0057 121.7)",
+          "oklch(95% 0.0019 121.7)"
+        ]
+      },
+      "accent": {
+        "role": "primary",
+        "displayName": "accent",
+        "tonalRamp": [
+          "oklch(15% 0.0283 38.5)",
+          "oklch(27% 0.0707 38.5)",
+          "oklch(39% 0.1132 38.5)",
+          "oklch(51% 0.1414 38.5)",
+          "oklch(63% 0.1414 38.5)",
+          "oklch(75% 0.1132 38.5)",
+          "oklch(87% 0.0637 38.5)",
+          "oklch(95% 0.0212 38.5)"
+        ]
+      },
+      "accent-soft": {
+        "role": "primary",
+        "displayName": "accent soft",
+        "tonalRamp": [
+          "oklch(15% 0.0036 59.5)",
+          "oklch(27% 0.0089 59.5)",
+          "oklch(39% 0.0142 59.5)",
+          "oklch(51% 0.0178 59.5)",
+          "oklch(63% 0.0178 59.5)",
+          "oklch(75% 0.0142 59.5)",
+          "oklch(87% 0.0080 59.5)",
+          "oklch(95% 0.0027 59.5)"
+        ]
+      },
+      "accent-track": {
+        "role": "primary",
+        "displayName": "accent track",
+        "tonalRamp": [
+          "oklch(15% 0.0115 52.0)",
+          "oklch(27% 0.0286 52.0)",
+          "oklch(39% 0.0458 52.0)",
+          "oklch(51% 0.0573 52.0)",
+          "oklch(63% 0.0573 52.0)",
+          "oklch(75% 0.0458 52.0)",
+          "oklch(87% 0.0258 52.0)",
+          "oklch(95% 0.0086 52.0)"
+        ]
+      },
+      "accent-ink": {
+        "role": "primary",
+        "displayName": "accent ink",
+        "tonalRamp": [
+          "oklch(15% 0.0179 42.3)",
+          "oklch(27% 0.0448 42.3)",
+          "oklch(39% 0.0717 42.3)",
+          "oklch(51% 0.0896 42.3)",
+          "oklch(63% 0.0896 42.3)",
+          "oklch(75% 0.0717 42.3)",
+          "oklch(87% 0.0403 42.3)",
+          "oklch(95% 0.0134 42.3)"
+        ]
+      },
+      "chart-2": {
+        "role": "neutral",
+        "displayName": "chart 2",
+        "tonalRamp": [
+          "oklch(15% 0.0030 120.4)",
+          "oklch(27% 0.0074 120.4)",
+          "oklch(39% 0.0118 120.4)",
+          "oklch(51% 0.0148 120.4)",
+          "oklch(63% 0.0148 120.4)",
+          "oklch(75% 0.0118 120.4)",
+          "oklch(87% 0.0067 120.4)",
+          "oklch(95% 0.0022 120.4)"
+        ]
+      },
+      "chart-muted": {
+        "role": "neutral",
+        "displayName": "chart muted",
+        "tonalRamp": [
+          "oklch(15% 0.0028 120.3)",
+          "oklch(27% 0.0071 120.3)",
+          "oklch(39% 0.0113 120.3)",
+          "oklch(51% 0.0142 120.3)",
+          "oklch(63% 0.0142 120.3)",
+          "oklch(75% 0.0113 120.3)",
+          "oklch(87% 0.0064 120.3)",
+          "oklch(95% 0.0021 120.3)"
+        ]
+      },
+      "negative": {
+        "role": "neutral",
+        "displayName": "negative",
+        "tonalRamp": [
+          "oklch(15% 0.0317 24.8)",
+          "oklch(27% 0.0792 24.8)",
+          "oklch(39% 0.1268 24.8)",
+          "oklch(51% 0.1585 24.8)",
+          "oklch(63% 0.1585 24.8)",
+          "oklch(75% 0.1268 24.8)",
+          "oklch(87% 0.0713 24.8)",
+          "oklch(95% 0.0238 24.8)"
+        ]
+      },
+      "notice-bg": {
+        "role": "neutral",
+        "displayName": "notice bg",
+        "tonalRamp": [
+          "oklch(15% 0.0032 58.6)",
+          "oklch(27% 0.0080 58.6)",
+          "oklch(39% 0.0128 58.6)",
+          "oklch(51% 0.0160 58.6)",
+          "oklch(63% 0.0160 58.6)",
+          "oklch(75% 0.0128 58.6)",
+          "oklch(87% 0.0072 58.6)",
+          "oklch(95% 0.0024 58.6)"
+        ]
+      },
+      "focus": {
+        "role": "primary",
+        "displayName": "focus",
+        "tonalRamp": [
+          "oklch(15% 0.0258 38.3)",
+          "oklch(27% 0.0646 38.3)",
+          "oklch(39% 0.1033 38.3)",
+          "oklch(51% 0.1291 38.3)",
+          "oklch(63% 0.1291 38.3)",
+          "oklch(75% 0.1033 38.3)",
+          "oklch(87% 0.0581 38.3)",
+          "oklch(95% 0.0194 38.3)"
+        ]
+      },
+      "dark-ground": {
+        "role": "neutral",
+        "displayName": "dark ground",
+        "tonalRamp": [
+          "oklch(15% 0.0013 135.0)",
+          "oklch(27% 0.0033 135.0)",
+          "oklch(39% 0.0052 135.0)",
+          "oklch(51% 0.0065 135.0)",
+          "oklch(63% 0.0065 135.0)",
+          "oklch(75% 0.0052 135.0)",
+          "oklch(87% 0.0029 135.0)",
+          "oklch(95% 0.0010 135.0)"
+        ]
+      },
+      "dark-surface": {
+        "role": "neutral",
+        "displayName": "dark surface",
+        "tonalRamp": [
+          "oklch(15% 0.0020 132.7)",
+          "oklch(27% 0.0051 132.7)",
+          "oklch(39% 0.0082 132.7)",
+          "oklch(51% 0.0102 132.7)",
+          "oklch(63% 0.0102 132.7)",
+          "oklch(75% 0.0082 132.7)",
+          "oklch(87% 0.0046 132.7)",
+          "oklch(95% 0.0015 132.7)"
+        ]
+      },
+      "dark-raised": {
+        "role": "neutral",
+        "displayName": "dark raised",
+        "tonalRamp": [
+          "oklch(15% 0.0027 131.7)",
+          "oklch(27% 0.0068 131.7)",
+          "oklch(39% 0.0109 131.7)",
+          "oklch(51% 0.0136 131.7)",
+          "oklch(63% 0.0136 131.7)",
+          "oklch(75% 0.0109 131.7)",
+          "oklch(87% 0.0061 131.7)",
+          "oklch(95% 0.0020 131.7)"
+        ]
+      },
+      "dark-text": {
+        "role": "neutral",
+        "displayName": "dark text",
+        "tonalRamp": [
+          "oklch(15% 0.0021 106.6)",
+          "oklch(27% 0.0053 106.6)",
+          "oklch(39% 0.0085 106.6)",
+          "oklch(51% 0.0106 106.6)",
+          "oklch(63% 0.0106 106.6)",
+          "oklch(75% 0.0085 106.6)",
+          "oklch(87% 0.0048 106.6)",
+          "oklch(95% 0.0016 106.6)"
+        ]
+      },
+      "dark-muted": {
+        "role": "neutral",
+        "displayName": "dark muted",
+        "tonalRamp": [
+          "oklch(15% 0.0040 122.9)",
+          "oklch(27% 0.0101 122.9)",
+          "oklch(39% 0.0162 122.9)",
+          "oklch(51% 0.0202 122.9)",
+          "oklch(63% 0.0202 122.9)",
+          "oklch(75% 0.0162 122.9)",
+          "oklch(87% 0.0091 122.9)",
+          "oklch(95% 0.0030 122.9)"
+        ]
+      },
+      "dark-border": {
+        "role": "neutral",
+        "displayName": "dark border",
+        "tonalRamp": [
+          "oklch(15% 0.0039 127.3)",
+          "oklch(27% 0.0099 127.3)",
+          "oklch(39% 0.0158 127.3)",
+          "oklch(51% 0.0197 127.3)",
+          "oklch(63% 0.0197 127.3)",
+          "oklch(75% 0.0158 127.3)",
+          "oklch(87% 0.0089 127.3)",
+          "oklch(95% 0.0030 127.3)"
+        ]
+      },
+      "dark-rule": {
+        "role": "neutral",
+        "displayName": "dark rule",
+        "tonalRamp": [
+          "oklch(15% 0.0037 129.1)",
+          "oklch(27% 0.0093 129.1)",
+          "oklch(39% 0.0149 129.1)",
+          "oklch(51% 0.0186 129.1)",
+          "oklch(63% 0.0186 129.1)",
+          "oklch(75% 0.0149 129.1)",
+          "oklch(87% 0.0084 129.1)",
+          "oklch(95% 0.0028 129.1)"
+        ]
+      },
+      "dark-control": {
+        "role": "neutral",
+        "displayName": "dark control",
+        "tonalRamp": [
+          "oklch(15% 0.0062 128.1)",
+          "oklch(27% 0.0154 128.1)",
+          "oklch(39% 0.0247 128.1)",
+          "oklch(51% 0.0308 128.1)",
+          "oklch(63% 0.0308 128.1)",
+          "oklch(75% 0.0247 128.1)",
+          "oklch(87% 0.0139 128.1)",
+          "oklch(95% 0.0046 128.1)"
+        ]
+      },
+      "dark-accent": {
+        "role": "primary",
+        "displayName": "dark accent",
+        "tonalRamp": [
+          "oklch(15% 0.0219 49.4)",
+          "oklch(27% 0.0548 49.4)",
+          "oklch(39% 0.0877 49.4)",
+          "oklch(51% 0.1096 49.4)",
+          "oklch(63% 0.1096 49.4)",
+          "oklch(75% 0.0877 49.4)",
+          "oklch(87% 0.0493 49.4)",
+          "oklch(95% 0.0164 49.4)"
+        ]
+      },
+      "dark-accent-soft": {
+        "role": "primary",
+        "displayName": "dark accent soft",
+        "tonalRamp": [
+          "oklch(15% 0.0050 61.4)",
+          "oklch(27% 0.0125 61.4)",
+          "oklch(39% 0.0200 61.4)",
+          "oklch(51% 0.0250 61.4)",
+          "oklch(63% 0.0250 61.4)",
+          "oklch(75% 0.0200 61.4)",
+          "oklch(87% 0.0112 61.4)",
+          "oklch(95% 0.0037 61.4)"
+        ]
+      },
+      "dark-accent-track": {
+        "role": "primary",
+        "displayName": "dark accent track",
+        "tonalRamp": [
+          "oklch(15% 0.0126 51.2)",
+          "oklch(27% 0.0315 51.2)",
+          "oklch(39% 0.0505 51.2)",
+          "oklch(51% 0.0631 51.2)",
+          "oklch(63% 0.0631 51.2)",
+          "oklch(75% 0.0505 51.2)",
+          "oklch(87% 0.0284 51.2)",
+          "oklch(95% 0.0095 51.2)"
+        ]
+      },
+      "dark-accent-ink": {
+        "role": "primary",
+        "displayName": "dark accent ink",
+        "tonalRamp": [
+          "oklch(15% 0.0128 59.1)",
+          "oklch(27% 0.0321 59.1)",
+          "oklch(39% 0.0513 59.1)",
+          "oklch(51% 0.0641 59.1)",
+          "oklch(63% 0.0641 59.1)",
+          "oklch(75% 0.0513 59.1)",
+          "oklch(87% 0.0288 59.1)",
+          "oklch(95% 0.0096 59.1)"
+        ]
+      },
+      "dark-chart-2": {
+        "role": "neutral",
+        "displayName": "dark chart 2",
+        "tonalRamp": [
+          "oklch(15% 0.0048 126.4)",
+          "oklch(27% 0.0121 126.4)",
+          "oklch(39% 0.0193 126.4)",
+          "oklch(51% 0.0241 126.4)",
+          "oklch(63% 0.0241 126.4)",
+          "oklch(75% 0.0193 126.4)",
+          "oklch(87% 0.0109 126.4)",
+          "oklch(95% 0.0036 126.4)"
+        ]
+      },
+      "dark-chart-muted": {
+        "role": "neutral",
+        "displayName": "dark chart muted",
+        "tonalRamp": [
+          "oklch(15% 0.0060 126.0)",
+          "oklch(27% 0.0150 126.0)",
+          "oklch(39% 0.0240 126.0)",
+          "oklch(51% 0.0300 126.0)",
+          "oklch(63% 0.0300 126.0)",
+          "oklch(75% 0.0240 126.0)",
+          "oklch(87% 0.0135 126.0)",
+          "oklch(95% 0.0045 126.0)"
+        ]
+      },
+      "dark-negative": {
+        "role": "neutral",
+        "displayName": "dark negative",
+        "tonalRamp": [
+          "oklch(15% 0.0188 29.7)",
+          "oklch(27% 0.0469 29.7)",
+          "oklch(39% 0.0751 29.7)",
+          "oklch(51% 0.0939 29.7)",
+          "oklch(63% 0.0939 29.7)",
+          "oklch(75% 0.0751 29.7)",
+          "oklch(87% 0.0422 29.7)",
+          "oklch(95% 0.0141 29.7)"
+        ]
+      },
+      "dark-notice-bg": {
+        "role": "neutral",
+        "displayName": "dark notice bg",
+        "tonalRamp": [
+          "oklch(15% 0.0048 53.2)",
+          "oklch(27% 0.0119 53.2)",
+          "oklch(39% 0.0191 53.2)",
+          "oklch(51% 0.0239 53.2)",
+          "oklch(63% 0.0239 53.2)",
+          "oklch(75% 0.0191 53.2)",
+          "oklch(87% 0.0107 53.2)",
+          "oklch(95% 0.0036 53.2)"
+        ]
+      },
+      "dark-focus": {
+        "role": "primary",
+        "displayName": "dark focus",
+        "tonalRamp": [
+          "oklch(15% 0.0196 50.0)",
+          "oklch(27% 0.0489 50.0)",
+          "oklch(39% 0.0783 50.0)",
+          "oklch(51% 0.0978 50.0)",
+          "oklch(63% 0.0978 50.0)",
+          "oklch(75% 0.0783 50.0)",
+          "oklch(87% 0.0440 50.0)",
+          "oklch(95% 0.0147 50.0)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "display",
+        "purpose": "Current temperature only."
+      },
+      "headline": {
+        "displayName": "headline",
+        "purpose": "City heading."
+      },
+      "condition": {
+        "displayName": "condition",
+        "purpose": "Weather description."
+      },
+      "measurement": {
+        "displayName": "measurement",
+        "purpose": "Supporting readings."
+      },
+      "title": {
+        "displayName": "title",
+        "purpose": "Panel headings."
+      },
+      "body": {
+        "displayName": "body",
+        "purpose": "Ordinary interface copy."
+      },
+      "label": {
+        "displayName": "label",
+        "purpose": "Metadata and controls."
+      },
+      "fine": {
+        "displayName": "fine",
+        "purpose": "Attribution and compact utilities."
+      }
+    },
+    "shadows": [
+      {
+        "name": "search-popover",
+        "value": "0 12px 32px #00000014",
+        "purpose": "Floating search results only."
+      }
+    ],
+    "motion": [
+      {
+        "name": "search-hover",
+        "value": "opacity 0.15s",
+        "purpose": "Search-submit hover."
+      },
+      {
+        "name": "refresh-busy",
+        "value": "rotate 1.2s linear infinite",
+        "purpose": "Busy refresh icon; disabled for reduced motion."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "animation: none !important; transition: none !important; scroll-behavior: auto",
+        "purpose": "Respect prefers-reduced-motion: reduce."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "wide",
+        "value": "min-width: 1600px"
+      },
+      {
+        "name": "compact-desktop",
+        "value": "max-width: 1200px"
+      },
+      {
+        "name": "tablet",
+        "value": "max-width: 900px"
+      },
+      {
+        "name": "mobile",
+        "value": "max-width: 600px"
+      },
+      {
+        "name": "narrow-mobile",
+        "value": "max-width: 360px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Search action",
+      "kind": "button",
+      "refersTo": "button-search",
+      "description": "Attached inverse city-search action.",
+      "html": "<button class=\"ds-search\">Search</button>",
+      "css": ".ds-search{font-family:\"DM Sans\",system-ui,sans-serif;font-size:14px;line-height:1.5;font-variant-numeric:tabular-nums;height:44px;padding:0 16px;border:0;border-radius:0 7px 7px 0;background:var(--text,#292b28);color:var(--surface,#fff);cursor:pointer;transition:opacity .15s}.ds-search:hover{opacity:.8}.ds-search:focus-visible{outline:2px solid var(--focus,#9d4224);outline-offset:4px;}.ds-search:disabled{opacity:.6;cursor:wait}"
+    },
+    {
+      "name": "Text action",
+      "kind": "button",
+      "refersTo": "button-text",
+      "description": "Accent action for retry or clearing recent places.",
+      "html": "<button class=\"ds-text\">Clear recent</button>",
+      "css": ".ds-text{font-family:\"DM Sans\",system-ui,sans-serif;font-size:14px;line-height:1.5;font-variant-numeric:tabular-nums;min-height:40px;padding:8px 4px;border:0;background:transparent;color:var(--accent,#b34d2b);font-weight:500;cursor:pointer}.ds-text:hover{text-decoration:underline;text-underline-offset:4px}.ds-text:focus-visible{outline:2px solid var(--focus,#9d4224);outline-offset:4px;}"
+    },
+    {
+      "name": "Icon action",
+      "kind": "button",
+      "refersTo": "button-icon",
+      "description": "Utility control using the retained SVG moon.",
+      "html": "<button class=\"ds-icon\" aria-label=\"Change theme\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z\"/></svg></button>",
+      "css": ".ds-icon{width:44px;height:44px;border:0;border-radius:8px;display:inline-grid;place-items:center;background:transparent;color:var(--text,#292b28);cursor:pointer}.ds-icon svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.65;stroke-linecap:round;stroke-linejoin:round}.ds-icon:hover{background:var(--raised,#f1f0ec)}.ds-icon:focus-visible{outline:2px solid var(--focus,#9d4224);outline-offset:4px;}"
+    },
+    {
+      "name": "Unit selector",
+      "kind": "nav",
+      "refersTo": "unit-option",
+      "description": "Grouped unit controls with visible selection.",
+      "html": "<div class=\"ds-units\" role=\"group\" aria-label=\"Units\"><button aria-pressed=\"true\" aria-label=\"Use metric units\">°C</button><button aria-pressed=\"false\" aria-label=\"Use imperial units\">°F</button></div>",
+      "css": ".ds-units{display:inline-flex;padding:3px;border:1px solid var(--border,#e5e5df);border-radius:8px;background:var(--ground,#f6f5f1)}.ds-units button{font-family:\"DM Sans\",system-ui,sans-serif;font-size:14px;line-height:1.5;font-variant-numeric:tabular-nums;width:38px;height:36px;border:0;border-radius:5px;background:transparent;color:var(--muted,#696b64);cursor:pointer}.ds-units button[aria-pressed=\"true\"]{background:var(--surface,#fff);color:var(--text,#292b28)}.ds-units button:focus-visible{outline:2px solid var(--focus,#9d4224);outline-offset:4px;}"
+    },
+    {
+      "name": "City search field",
+      "kind": "input",
+      "refersTo": "input-search",
+      "description": "Grounded search field focused as a whole form.",
+      "html": "<form class=\"ds-field\" role=\"search\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><circle cx=\"11\" cy=\"11\" r=\"8\"/><path d=\"m21 21-4.3-4.3\"/></svg><input aria-label=\"Search for a city\" placeholder=\"Find a city…\"/><button type=\"button\">Search</button></form>",
+      "css": ".ds-field{display:flex;align-items:center;gap:12px;height:44px;max-width:528px;padding-left:14px;border:1px solid var(--border,#e5e5df);border-radius:8px;background:var(--ground,#f6f5f1)}.ds-field:focus-within{outline:2px solid var(--focus,#9d4224);outline-offset:2px}.ds-field svg{width:18px;height:18px;fill:none;stroke:var(--muted,#696b64);stroke-width:1.65;stroke-linecap:round}.ds-field input{font-family:\"DM Sans\",system-ui,sans-serif;font-size:14px;line-height:1.5;font-variant-numeric:tabular-nums;min-width:0;width:100%;height:100%;padding:0;border:0;background:transparent;color:var(--text,#292b28);caret-color:var(--accent,#b34d2b)}.ds-field input::placeholder{color:var(--muted,#696b64);opacity:1}.ds-field input:focus-visible{outline:none}.ds-field button{font-family:\"DM Sans\",system-ui,sans-serif;font-size:14px;line-height:1.5;font-variant-numeric:tabular-nums;align-self:stretch;padding:0 16px;border:0;border-radius:0 7px 7px 0;background:var(--text,#292b28);color:var(--surface,#fff);cursor:pointer;transition:opacity .15s}.ds-field button:hover{opacity:.8}.ds-field button:focus-visible{outline:2px solid var(--focus,#9d4224);outline-offset:4px;}"
+    },
+    {
+      "name": "Recent city chip",
+      "kind": "chip",
+      "refersTo": "chip-city",
+      "description": "Current place with a disambiguating qualifier.",
+      "html": "<button class=\"ds-city\" aria-current=\"true\" aria-label=\"Show weather for London, Ontario, Canada, 42.98°, -81.23°\" title=\"London, Ontario, Canada, 42.98°, -81.23°\"><span class=\"ds-city-name\">London</span><span class=\"ds-city-qualifier\"> · Ontario</span></button>",
+      "css": ".ds-city{font-family:\"DM Sans\",system-ui,sans-serif;font-size:14px;line-height:1.5;font-variant-numeric:tabular-nums;flex:none;display:inline-flex;align-items:center;min-height:36px;max-width:300px;padding:6px 14px;border:0;border-radius:6px;background:transparent;color:var(--text,#292b28);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;cursor:pointer}.ds-city[aria-current=\"true\"]{background:var(--surface,#fff)}.ds-city-name{max-width:140px;overflow:hidden;text-overflow:ellipsis}.ds-city-qualifier{max-width:130px;overflow:hidden;text-overflow:ellipsis;color:var(--muted,#696b64);white-space:pre}.ds-city:hover{background:var(--raised,#f1f0ec)}.ds-city:focus-visible{outline:2px solid var(--focus,#9d4224);outline-offset:4px;}"
+    },
+    {
+      "name": "Weather panel",
+      "kind": "card",
+      "refersTo": "panel",
+      "description": "Flat neutral information container.",
+      "html": "<section class=\"ds-panel\"><h2>Weather details</h2><p>Selected day’s conditions</p></section>",
+      "css": ".ds-panel{font-family:\"DM Sans\",system-ui,sans-serif;font-size:14px;line-height:1.5;font-variant-numeric:tabular-nums;padding:24px;border:1px solid var(--border,#e5e5df);border-radius:16px;background:var(--surface,#fff);color:var(--text,#292b28)}.ds-panel h2{margin:0;font-size:16px;font-weight:600;line-height:1.4}.ds-panel p{margin:4px 0 0;font-size:13px;color:var(--muted,#696b64)}"
+    },
+    {
+      "name": "Current conditions",
+      "kind": "card",
+      "refersTo": "current-panel",
+      "description": "Accent-wash reading; sample values are illustrative.",
+      "html": "<section class=\"ds-current\"><h2>Current weather</h2><div class=\"ds-temperature\">29<span>°C</span></div><p>Clear sky</p></section>",
+      "css": ".ds-current{font-family:\"DM Sans\",system-ui,sans-serif;font-size:14px;line-height:1.5;font-variant-numeric:tabular-nums;padding:24px;border-radius:16px;background:var(--accent-soft,#f8ece3);color:var(--accent-ink,#71371f)}.ds-current h2{margin:0;font-size:16px;font-weight:600;line-height:1.4}.ds-temperature{margin-top:26px;font-size:88px;font-weight:400;line-height:1.1;letter-spacing:-.04em;white-space:nowrap}.ds-temperature span{font-size:32px;vertical-align:top;position:relative;top:10px;letter-spacing:-.02em}.ds-current p{margin:8px 0 0;font-size:23px;font-weight:500;letter-spacing:-.02em;line-height:1.3}"
+    },
+    {
+      "name": "Forecast interval",
+      "kind": "custom",
+      "refersTo": "forecast-row",
+      "description": "Selected day interval; preview data is illustrative.",
+      "html": "<button class=\"ds-forecast\" aria-pressed=\"true\" aria-label=\"Show Monday forecast\"><span>Mon</span><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"4\"/><path d=\"M12 2v2M12 20v2M2 12h2M20 12h2m-3.66-5.66 1.41-1.41M4.93 4.93l1.41 1.41m0 11.32-1.41 1.41m12.73-1.41 1.41 1.41\"/></svg><small>0%</small><span class=\"ds-range\"><span>21°</span><span class=\"ds-track\"><span></span></span><span>32°</span></span><svg class=\"ds-chevron\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"m9 18 6-6-6-6\"/></svg></button>",
+      "css": ".ds-forecast{font-family:\"DM Sans\",system-ui,sans-serif;font-size:14px;line-height:1.5;font-variant-numeric:tabular-nums;display:grid;grid-template-columns:80px 32px 46px 1fr 24px;align-items:center;gap:12px;width:100%;min-height:48px;padding:4px 10px;margin:3px 0;text-align:left;border:0;border-radius:6px;background:transparent;color:var(--text,#292b28);cursor:pointer}.ds-forecast:hover{background:var(--raised,#f1f0ec)}.ds-forecast[aria-pressed=\"true\"]{background:var(--accent-soft,#f8ece3)}.ds-forecast:focus-visible{outline:2px solid var(--focus,#9d4224);outline-offset:4px;}.ds-forecast>span:first-child{font-weight:500}.ds-forecast svg{width:21px;height:21px;fill:none;stroke:var(--accent,#b34d2b);stroke-width:1.65;stroke-linecap:round}.ds-forecast small{font-size:13px;color:var(--muted,#696b64);text-align:right}.ds-range{display:flex;align-items:center;gap:10px}.ds-range>span:first-child{color:var(--muted,#696b64)}.ds-track{height:5px;min-width:20px;flex:1;position:relative;background:var(--raised,#f1f0ec);border-radius:9px}.ds-track span{position:absolute;left:15%;width:70%;height:5px;background:var(--accent-track,#ebc2aa);border-radius:9px}.ds-forecast[aria-pressed=\"true\"] .ds-track span{background:var(--accent,#b34d2b)}.ds-forecast .ds-chevron{width:16px;height:16px;color:var(--muted,#696b64);stroke:currentColor;justify-self:end}"
+    },
+    {
+      "name": "Metric selector",
+      "kind": "nav",
+      "refersTo": "metric-option",
+      "description": "Tonal hourly-metric selection.",
+      "html": "<div class=\"ds-metrics\" role=\"group\" aria-label=\"Hourly metric\"><button aria-pressed=\"true\">Temperature</button><button aria-pressed=\"false\">Rain</button><button aria-pressed=\"false\">Wind</button></div>",
+      "css": ".ds-metrics{display:flex;gap:4px}.ds-metrics button{font-family:\"DM Sans\",system-ui,sans-serif;font-size:14px;line-height:1.5;font-variant-numeric:tabular-nums;font-size:13px;min-height:36px;padding:6px 10px;border:0;border-radius:6px;background:transparent;color:var(--muted,#696b64);cursor:pointer}.ds-metrics button[aria-pressed=\"true\"],.ds-metrics button:hover{background:var(--raised,#f1f0ec)}.ds-metrics button[aria-pressed=\"true\"]{color:var(--text,#292b28)}.ds-metrics button:focus-visible{outline:2px solid var(--focus,#9d4224);outline-offset:4px;}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Daylight horizon",
+    "overview": "A restrained daylight palette pairs warm ivory and white with charcoal readings and burnt-orange data. Flat panels, fine rules and tabular numerals keep the interface quiet while the weather remains prominent. Dark mode preserves the same hierarchy through deep olive surfaces and pale apricot accents.\n\nThe system favors precise, legible information over decorative imagery. A self-hosted variable face, the retained SVG weather icon family and a small authored wind mark establish continuity across controls, readings and charts.",
+    "keyCharacteristics": [
+      "Warm neutral surfaces with a reserved orange data accent.",
+      "Tabular readings and compact, sentence-case labels.",
+      "Flat rounded containers with tonal selection.",
+      "Keyboard-visible controls and explicit data states."
+    ],
+    "rules": [
+      {
+        "name": "The Data Accent Rule",
+        "body": "Use the orange family for weather marks, chart data, selected intervals and a small number of actions; use neutral text for ordinary readings.",
+        "section": "colors"
+      },
+      {
+        "name": "The Reading Hierarchy Rule",
+        "body": "Reserve the largest regular-weight figures for current temperature; keep section headings compact and semibold.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat Surface Rule",
+        "body": "Separate resting panels with tone and fine borders; reserve the ambient shadow for the floating search results.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do use the matching theme palette for surfaces, text, charts and focus.",
+      "Do retain tabular numerals, explicit units and local-time context.",
+      "Do keep long city names readable through wrapping in headings and scrolling recent-place chips with full accessible names.",
+      "Do represent unavailable readings with an em dash and provide honest loading, saved-data and error messages.",
+      "Do reuse the existing SVG icon family and authored vector marks."
+    ],
+    "donts": [
+      "Don't replace data marks with emoji or unrelated icon styles.",
+      "Don't add shadows to resting weather panels.",
+      "Don't use the display temperature size for ordinary details or section titles.",
+      "Don't truncate an accessible city name or collapse distinct same-name locations into one ambiguous label."
+    ]
+  }
+}
